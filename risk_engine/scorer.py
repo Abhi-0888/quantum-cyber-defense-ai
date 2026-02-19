@@ -4,10 +4,19 @@ class RiskScorer:
 
     def calculate_score(self, quantum_probs, ai_confidence):
         """
-        Calculate final risk score based on quantum probabilities and AI confidence.
-        Returns a risk score and level (Low, Medium, High).
+        Combine Quantum probabilities and AI confidence into a final risk score.
         """
-        # Placeholder logic
-        score = (max(quantum_probs.values()) + ai_confidence) / 2
-        level = "High" if score > 0.7 else "Medium" if score > 0.4 else "Low"
-        return score, level
+        # Weighted threat: higher weight to non-normal states
+        threat_score = 1.0 - quantum_probs.get("Normal", 1.0)
+        
+        # Combine with AI confidence
+        final_score = (threat_score * 0.7) + (ai_confidence * 0.3)
+        
+        if final_score < 0.3:
+            level = "Low"
+        elif final_score < 0.7:
+            level = "Medium"
+        else:
+            level = "High"
+            
+        return final_score, level

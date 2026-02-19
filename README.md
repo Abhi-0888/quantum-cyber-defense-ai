@@ -79,136 +79,57 @@ This project bridges **Cybersecurity + AI + Quantum Computing concepts**, making
 
 ## ⚙️ How the System Works
 
-### 1️⃣ Data Ingestion
+### 1️⃣ Data Ingestion & Simulation
+* **Live Simulator:** Generates synthetic network features (packet rate, bytes sent) to simulate real-world traffic patterns and attack scenarios.
 
-* Collects network traffic and system events
-* Supports:
+### 2️⃣ Quantum-Inspired Threat Modeling
+* **Probabilistic States:** Each network flow is modeled as a superposition of threat states (Normal, Brute Force, DDoS, Port Scan).
+* **Quantum Evaluation:** Uses `numpy` Dirichlet distributions to evaluate multiple possibilities simultaneously.
 
-  * CICIDS / NSL-KDD datasets
-  * Simulated real-time traffic
-* Ensures clean, normalized input data
+### 3️⃣ AI Detection Engine
+* **Anomaly Detection:** Refined confidence scoring based on simulated feature vectors, providing a second layer of validation.
 
----
+### 4️⃣ Risk Scoring & Decision Engine
+* **Weighted Integration:** Combines Quantum probabilities (70% weight) and AI confidence (30% weight) to produce a final risk score.
+* **Dynamic Thresholds:** Categorizes risk into Low, Medium, and High based on the combined score.
 
-### 2️⃣ Feature Engineering
-
-Extracts cybersecurity-relevant features such as:
-
-* Connection rate
-* Packet size variance
-* Authentication failures
-* Protocol usage patterns
-* Port scanning behavior
-
-These features form the basis for detection.
-
----
-
-### 3️⃣ Quantum-Inspired Threat Modeling (Core Innovation)
-
-Each network flow is represented as a **probabilistic threat state**, inspired by quantum concepts.
-
-Example:
-
-```
-Normal Traffic   → 0.30
-Brute Force      → 0.45
-DDoS Attack      → 0.25
-```
-
-**Quantum-Inspired Concepts Used:**
-
-| Concept               | Implementation                                   |
-| --------------------- | ------------------------------------------------ |
-| Superposition         | Multiple attack possibilities evaluated together |
-| Probability Amplitude | Likelihood of each threat                        |
-| Parallel Evaluation   | Faster decision-making                           |
-| Measurement           | Final attack classification                      |
-
----
-
-### 4️⃣ AI Detection Engine
-
-* Machine learning models learn attack patterns
-* Supports:
-
-  * Supervised classification
-  * Anomaly detection
-* Improves detection of **zero-day attacks**
-
----
-
-### 5️⃣ Risk Scoring & Decision Engine
-
-Combines:
-
-* Quantum-inspired probabilities
-* AI confidence scores
-* Attack impact severity
-
-Produces a **final risk score**:
-
-* 🟢 Low → Allow
-* 🟡 Medium → Monitor & log
-* 🔴 High → Alert & block
-
----
-
-### 6️⃣ Alert & Response System
-
-* Logs detected threats
-* Generates alerts
-* Simulates:
-
-  * IP blocking
-  * Session termination
-* Maintains audit trail for analysis
+### 5️⃣ Interactive Dashboard
+* **Real-time Monitoring:** Built with Streamlit, providing live metrics and history.
+* **Visualizations:**
+  * **Risk Score History:** Trace the progression of risk over time.
+  * **Quantum State Distribution:** Pie charts showing the breakdown of probable threats.
 
 ---
 
 ## 🧪 Technology Stack
 
-| Category               | Technology               |
-| ---------------------- | ------------------------ |
-| Language               | Python                   |
-| AI / ML                | Scikit-learn, TensorFlow |
-| Quantum-Inspired Logic | NumPy                    |
-| Data Handling          | Pandas                   |
-| Visualization          | Matplotlib, Streamlit    |
-| Datasets               | CICIDS, NSL-KDD          |
-| Version Control        | Git & GitHub             |
-
----
-
-## 📁 Project Structure
-
-```
-quantum-inspired-ai-cybersecurity-engine/
-│
-├── data/
-├── preprocessing/
-├── feature_engineering/
-├── quantum_threat_model/
-├── ai_detection/
-├── risk_engine/
-├── response_system/
-├── dashboard/
-├── utils/
-├── config/
-├── main.py
-└── README.md
-```
+| Category               | Technology                               |
+| ---------------------- | ---------------------------------------- |
+| Language               | Python 3.14+                             |
+| AI / ML Confidence     | Custom Probabilistic Logic               |
+| Quantum-Inspired Logic | NumPy (Dirichlet Distributions)          |
+| Data Handling          | Pandas                                   |
+| Visualization          | Plotly, Streamlit                        |
+| Deployment             | Ready for Cloud/On-Prem                  |
 
 ---
 
 ## 🚀 How to Run
 
-```bash
-git clone https://github.com/your-username/quantum-inspired-ai-cybersecurity-engine.git
-cd quantum-inspired-ai-cybersecurity-engine
-pip install -r requirements.txt
-python main.py
-```
+1. **Install Dependencies:**
+   ```bash
+   py -m pip install numpy pandas plotly streamlit
+   ```
+
+2. **Run Diagnostics (CLI):**
+   ```bash
+   py main.py
+   ```
+
+3. **Launch Dashboard:**
+   ```bash
+   streamlit run dashboard/app.py
+   ```
 
 ---
 
